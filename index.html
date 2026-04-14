@@ -521,8 +521,8 @@ let chartP=null,chartC=null,chartM=null,syncTimeout=null;
 let currentPhotoBase64=null,detectedItems=[];
 
 /* ══════════════════ UTILS ══════════════════ */
-function todayKey(){return new Date().toISOString().slice(0,10);}
-function offsetKey(n){const d=new Date();d.setDate(d.getDate()+n);return d.toISOString().slice(0,10);}
+function todayKey(){const d=new Date();d.setMinutes(d.getMinutes()+d.getTimezoneOffset()+330);return d.toISOString().slice(0,10);}
+function offsetKey(n){const d=new Date();d.setMinutes(d.getMinutes()+d.getTimezoneOffset()+330);d.setDate(d.getDate()+n);return d.toISOString().slice(0,10);}
 function keyLabel(k){
   if(k===todayKey())return'Today';
   const yd=new Date();yd.setDate(yd.getDate()-1);
